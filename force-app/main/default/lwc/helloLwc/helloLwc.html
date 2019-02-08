@@ -1,0 +1,42 @@
+<template>
+
+    <lightning-card title="Hello, LWC">
+
+        <div slot="actions">
+            <lightning-button label="Show Contacts" onclick={onShowContacts}></lightning-button>
+            <lightning-button label="Update Name" onclick={onUpdateName}></lightning-button>
+        </div>
+
+        <div class="slds-p-around_small">
+
+            <p>
+                Counter: <span class="blue">{counter}</span>
+            </p>
+
+            <p>
+                <template if:true={counterGreaterThanFive}>
+                    Counter is greater than five!
+                </template>
+                <template if:false={counterGreaterThanFive}>
+                    Counter is less than five!
+                </template>
+            </p>
+
+            <p>
+                Account Name: <span if:true={account.data}>{account.data.fields.Name.value}</span>
+            </p>
+
+            <div class={contactsCssClass}>
+                <ul>
+                    <b>Contacts</b>
+                    <template for:each={contacts} for:item='contact'>
+                        <li key={contact.Id} class="slds-list_ordered">{contact.Name}</li>
+                    </template>
+                </ul>
+            </div>
+
+        </div>
+
+    </lightning-card>
+
+</template>

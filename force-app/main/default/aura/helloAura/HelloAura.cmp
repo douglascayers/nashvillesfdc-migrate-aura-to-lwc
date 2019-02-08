@@ -1,0 +1,62 @@
+<aura:component controller="HelloAuraController" implements="flexipage:availableForRecordHome,force:hasRecordId">
+    
+    <aura:attribute name="timerId" type="String"/>
+    <aura:attribute name="counter" type="Integer" default="0"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+    <aura:handler name="render" value="{!this}" action="{!c.onRender}"/>
+    <aura:handler event="aura:locationChange" action="{!c.onLocationChange}"/>
+    
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="ldsComplexRecord" type="Object"/>
+    <aura:attribute name="ldsSimpleRecord" type="Account"/>
+    
+    <aura:attribute name="contacts" type="Contact[]"/>
+    
+    <force:recordData aura:id="lds"
+                      recordId="{!v.recordId}"
+                      layoutType="FULL"
+                      mode="VIEW"
+                      targetRecord="{!v.ldsComplexRecord}"
+                      targetFields="{!v.ldsSimpleRecord}"/>
+    
+    <lightning:card title="Hello, Aura">
+        
+        <aura:set attribute="actions">
+            <lightning:button label="Show Contacts" onclick="{!c.onShowContacts}"/>
+            <lightning:button label="Update Name" onclick="{!c.onUpdateName}"/>
+        </aura:set>
+        
+        <div class="slds-p-around_small">
+            
+            <p>
+                Counter: <span class="blue">{!v.counter}</span>
+            </p>
+            
+            <p>
+                <aura:if isTrue="{!v.counter > 5}">
+                    Counter is greater than five!
+                    <aura:set attribute="else">
+                        Counter is less than five!
+                    </aura:set>
+                </aura:if>
+            </p>
+            
+            <p>
+                Account Name: {!v.ldsSimpleRecord.Name}
+            </p>
+            
+            <div class="{!empty(v.contacts) ? 'slds-hide' : ''}">
+                <ul>
+                    <b>Contacts</b>
+                    <aura:iteration var="contact" items="{!v.contacts}">
+                        <li class="slds-list_ordered">{!contact.Name}</li>
+                    </aura:iteration>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </lightning:card>
+    
+</aura:component>

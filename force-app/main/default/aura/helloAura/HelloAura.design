@@ -1,0 +1,7 @@
+<design:component label="Hello, Aura">
+	
+    <sfdc:objects>
+        <sfdc:object>Account</sfdc:object>
+    </sfdc:objects>
+    
+</design:component>
