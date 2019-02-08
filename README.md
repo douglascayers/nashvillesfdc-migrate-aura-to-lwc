@@ -1,11 +1,11 @@
-## Migrating Aura Components to Lightning Web Components
+# Migrating Aura Components to Lightning Web Components
 
 This is the sample code used in the demo at the meetup, https://sfdc.co/aura2lwc-nash19.
 
 This repository includes two Lightning components, one developed with the [Aura programming model](https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/intro_framework.htm) and one with the [Lightning Web  Components programming model](https://developer.salesforce.com/docs/component-library/documentation/lwc).
 The two components implement the same behavior so you can see how the functionality maps between the two programming models.
 
-## Deploy the Code
+# Deploy the Code
 
 1. Set up your Salesforce DX environment by completing the [Quick Start: Lightning Web Components](https://trailhead.salesforce.com/content/learn/projects/quick-start-lightning-web-components?trail_id=build-lightning-web-components) project.
 
